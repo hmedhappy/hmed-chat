@@ -7,7 +7,7 @@ export default defineConfig({
     host: "0.0.0.0",
     port: 5173,
     strictPort: true,
-    allowedHosts: ["afdev.site"], // Add your domain here
+    allowedHosts: ["afdev.site", "chat.afdev.site"], // Add your domain here
   },
   plugins: [react()],
   build: {
