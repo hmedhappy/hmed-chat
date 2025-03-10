@@ -24,3 +24,10 @@ export const sendMessage = mutation({
     });
   },
 });
+
+export const deleteMessage = mutation({
+  args: { id: v.id("messages") },
+  handler: async (ctx, { id }) => {
+    await ctx.db.delete(id);
+  },
+});

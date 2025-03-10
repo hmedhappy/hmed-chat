@@ -3,13 +3,13 @@
 }
 
 :root {
-  --primary: #f35d1c;
+  --primary: #364156;
   --primary-text: #111827;
   --secondary-text: #374151;
   --tertiary-text: #4b5563;
   --secondary-background: #f3f4f6;
   --bubbles-background: white;
-  --bubbles-mine-background: #f35d1c;
+  --bubbles-mine-background: #364156;
   --focus-ring: #3b82f680;
 
   color-scheme: light dark;
@@ -17,13 +17,13 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --primary: #f35d1c;
+    --primary: #364156;
     --primary-text: #f9fafb;
     --secondary-text: #f3f4f6;
     --tertiary-text: #e5e7eb;
     --secondary-background: #0f172a;
     --bubbles-background: #374151;
-    --bubbles-mine-background: #f35d1c;
+    --bubbles-mine-background: #364156;
   }
 }
 
@@ -337,4 +337,60 @@ article button:has(span) {
 
 article button span {
   padding-left: 0.2em;
+}
+
+article {
+  position: relative;
+  padding: 0px;
+  margin: 10px 0;
+  /* border: 1px solid #ddd; */
+  border-radius: 8px;
+  transition: transform 0.2s ease-in-out;
+}
+
+.message-mine {
+  background-color: #e3f2fd;
+}
+
+/* Add a class for swipe animation */
+/* Add these styles to your existing CSS */
+
+/* Ensure the message container doesn't overflow */
+.chat article {
+  overflow: hidden;
+  position: relative;
+}
+
+/* Style for the message content */
+.chat article p {
+  transition:
+    transform 0.3s ease,
+    opacity 0.3s ease;
+  margin: 0.5em 0;
+  padding: 20px;
+  border-radius: 16px;
+  border-bottom-left-radius: 0;
+  background-color: var(--bubbles-background);
+  color: var(--secondary-text);
+  box-shadow:
+    0 1px 3px 0 rgb(0 0 0 / 0.1),
+    0 1px 2px -1px rgb(0 0 0 / 0.1);
+  line-height: 1.4;
+  white-space: pre-line;
+  position: relative;
+}
+
+/* Style for the user's own messages */
+.chat article.message-mine p {
+  border-radius: 16px;
+  border-bottom-right-radius: 0;
+  background: var(--bubbles-mine-background);
+  color: white;
+}
+
+div[data-clerk-component="UserButton"] {
+  position: absolute;
+  right: 15px;
+  top: 15px;
+  z-index: 2;
 }
