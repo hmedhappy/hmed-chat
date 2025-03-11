@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@clerk/clerk-react": "^5.24.1",
+    "@convex-dev/rate-limiter": "^0.2.6",
     "@faker-js/faker": "^8.0.2",
     "convex": "1.19.5",
     "prettier": "3.4.2",

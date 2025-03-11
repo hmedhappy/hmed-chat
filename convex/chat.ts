@@ -1,5 +1,6 @@
 import { v } from "convex/values";
 import { mutation, query } from "./_generated/server";
+import { rateLimiter } from "./rateLimiter";
 
 export const getMessages = query({
   args: {},
@@ -18,6 +19,13 @@ export const sendMessage = mutation({
   },
   handler: async (ctx, args) => {
     console.log("This TypeScript function is running on the server.");
+    const { ok, retryAfter } = await rateLimiter.limit(ctx, "sendMessage", {
+      key: args.user,
+    });
+    if (!ok) {
+      // Inform the client to retry after the specified time
+      return { success: false, retryAfter };
+    }
     await ctx.db.insert("messages", {
       user: args.user,
       body: args.body,
