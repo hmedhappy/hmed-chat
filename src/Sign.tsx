@@ -5,7 +5,7 @@ export default function Sign() {
         <main className="chat">
             <header>
                 <h1>Welcome to Achat</h1>
-                <SignInButton mode='modal' withSignUp />
+                <SignInButton mode='modal' />
             </header>
         </main>
     )

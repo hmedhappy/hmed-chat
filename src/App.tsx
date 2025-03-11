@@ -60,7 +60,7 @@ export default function App() {
     <main className="chat">
       <header>
         <UserButton />
-        <h1>Convex Chat</h1>
+        <h1>A-Chat</h1>
         <p>
           Connected as <strong style={{ textTransform: "capitalize" }}>{NAME}</strong>
         </p>
