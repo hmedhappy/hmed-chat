@@ -10,6 +10,7 @@
 
 import type * as chat from "../chat.js";
 import type * as rateLimiter from "../rateLimiter.js";
+import type * as user from "../user.js";
 
 import type {
   ApiFromModules,
@@ -27,6 +28,7 @@ import type {
 declare const fullApi: ApiFromModules<{
   chat: typeof chat;
   rateLimiter: typeof rateLimiter;
+  user: typeof user;
 }>;
 declare const fullApiWithMounts: typeof fullApi;
 

@@ -13,6 +13,10 @@ interface Message {
   body: string;
 }
 
+// interface User {
+
+// }
+
 // For demo purposes. In a real app, you'd have real user data.
 
 export default function App() {
@@ -20,6 +24,7 @@ export default function App() {
   const NAME = useMemo(() => getOrSetFakeName(user), [user])
 
   const messages = useQuery(api.chat.getMessages) as Message[] | undefined; // Fetch messages
+  // const users = useQuery(api.user.getUsers) as User[] | undefined; // Fetch messages
   const sendMessage = useMutation(api.chat.sendMessage); // Mutation to send a message
   const deleteMessage = useMutation(api.chat.deleteMessage); // Mutation to delete a message
 

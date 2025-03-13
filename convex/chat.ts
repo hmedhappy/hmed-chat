@@ -14,10 +14,15 @@ export const getMessages = query({
 
 export const sendMessage = mutation({
   args: {
-    user: v.string(),
+    user: v.union(v.id("users"), v.string()),
     body: v.string(),
   },
   handler: async (ctx, args) => {
+    // Check Identity
+    const identity = await ctx.auth.getUserIdentity();
+    if (identity === null) {
+      throw new Error("Not authenticated");
+    }
     console.log("This TypeScript function is running on the server.");
     const { ok, retryAfter } = await rateLimiter.limit(ctx, "sendMessage", {
       key: args.user,
